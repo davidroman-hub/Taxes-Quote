@@ -1,4 +1,3 @@
-
 import React from 'react'
 import {StyleSheet, TextInput, View} from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
@@ -34,7 +33,7 @@ const Form  = () => {
 const styles = StyleSheet.create({
     viewForm : {
         position:'absolute',
-        bottom:-90,
+        bottom:-50,
         width:'85%',
         paddingHorizontal:50,
         backgroundColor:colors.PRIMARY_COLOR_DARK,

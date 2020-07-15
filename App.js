@@ -1,9 +1,9 @@
 import React,{Fragment} from 'react';
-import {StyleSheet, View, Text, SafeAreaView, StatusBar, YellowBox} from 'react-native';
+import {StyleSheet, View, Text, SafeAreaView, StatusBar, LogBox} from 'react-native';
 import colors from './src/utils/colors' ;// all the props of colors like Sass
 import Form from './src/components/Form';
 
- YellowBox.ignoreWarnings(["Picker has been extracted"])
+//  LogBox.ignoreLogs(["Picker has been extracted"])
 
 
 const App = () => {
