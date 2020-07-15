@@ -1,7 +1,7 @@
 import React,{Fragment} from 'react'
 import {StyleSheet, View, Text, SafeAreaView, StatusBar} from 'react-native'
 import colors from './src/utils/colors' // all the props of colors like Sass
-
+import Form from './src/components/Form'
 
 
 const App = () => {
@@ -10,7 +10,8 @@ const App = () => {
       {/* <> */}
         <StatusBar barStyle='light-content' />
           <SafeAreaView style={styles.safeArea}>
-            <Text> Formulario Head </Text>
+            <Text style={styles.titleApp}>  Cotizador de Intereses por meses</Text>
+            <Form/>
           </SafeAreaView>
 
           <View>
@@ -33,7 +34,15 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius:30,
     borderBottomRightRadius:30,
     alignItems:"center"
+  },
+  
+  titleApp:{
+    fontSize:25,
+    fontWeight:'bold',
+    color:'#fff',
+    marginTop:15
   }
+
 })
 
 export default App
