@@ -1,9 +1,19 @@
 import React,{Fragment} from 'react';
-import {StyleSheet, View, Text, SafeAreaView, StatusBar, LogBox} from 'react-native';
+
+import {StyleSheet,
+        View,
+        Text,
+        SafeAreaView, 
+        StatusBar, 
+        LogBox, 
+        ViewBase
+      } 
+from 'react-native';
+
 import colors from './src/utils/colors' ;// all the props of colors like Sass
 import Form from './src/components/Form';
 
-//  LogBox.ignoreLogs(["Picker has been extracted"])
+ LogBox.ignoreLogs(["Picker has been extracted"])
 
 
 const App = () => {
@@ -12,6 +22,7 @@ const App = () => {
       {/* <> */}
         <StatusBar barStyle='light-content' />
           <SafeAreaView style={styles.safeArea}>
+            <View style={styles.background} />
             <Text style={styles.titleApp}>  Cotizador de Intereses por meses</Text>
             <Form/>
           </SafeAreaView>
@@ -31,13 +42,19 @@ const App = () => {
 
 const styles = StyleSheet.create({
   safeArea: {
-    backgroundColor: colors.PRIMARY_COLOR ,
-    height:200,
-    borderBottomLeftRadius:30,
-    borderBottomRightRadius:30,
+    height:290,
     alignItems:"center"
   },
-  
+  background:{
+    backgroundColor: colors.PRIMARY_COLOR,
+    height: 200,
+    width: '100%',
+    borderBottomLeftRadius: 30,
+    borderBottomRightRadius: 30,
+    position: 'absolute',
+    zIndex: -1,
+  },
+
   titleApp:{
     fontSize:25,
     fontWeight:'bold',
