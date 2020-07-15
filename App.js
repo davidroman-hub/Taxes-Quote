@@ -1,13 +1,16 @@
 import React,{Fragment} from 'react'
-import {StyleSheet, View, Text, SafeAreaView} from 'react-native'
+import {StyleSheet, View, Text, SafeAreaView, StatusBar} from 'react-native'
+import colors from './src/utils/colors' // all the props of colors like Sass
+
 
 
 const App = () => {
   return (
     <Fragment>
       {/* <> */}
+        <StatusBar barStyle='light-content' />
           <SafeAreaView style={styles.safeArea}>
-            <Text>Formulario Head </Text>
+            <Text> Formulario Head </Text>
           </SafeAreaView>
 
           <View>
@@ -25,7 +28,7 @@ const App = () => {
 
 const styles = StyleSheet.create({
   safeArea: {
-    backgroundColor: '#f00',
+    backgroundColor: colors.PRIMARY_COLOR ,
     height:200,
     borderBottomLeftRadius:30,
     borderBottomRightRadius:30,
