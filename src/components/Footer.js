@@ -4,7 +4,7 @@ import colors from '../utils/colors'
 
 const Footer = (props) =>  {
     
-    const  { calculate } =props
+    const  { calculate } = props
 
     return (
         <View style={styles.viewFooter}>

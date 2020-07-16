@@ -17,7 +17,7 @@ from 'react-native';
 import colors from './src/utils/colors' ;// all the props of colors like Sass
 import Form from './src/components/Form';
 import Footer from './src/components/Footer'
-
+import ResultCalculation from './src/components/ResultCalculate'
 
  LogBox.ignoreLogs(["Picker has been extracted"])
 
@@ -31,18 +31,20 @@ const [capital, setCapital] = useState(null); //Cantidad state
 const [taxes, setTaxes] = useState(null); // taxes state
 const [months,setMonths] = useState(null); //months state
 const [total, setTotal] = useState(null)
+const [errorMessage, setErrorMessage] = useState(null)
 
 const calculate = () => {
   // console.log("capital =>", capital)
   // console.log("taxes =>", taxes)
   // console.log("months =>", months)
 console.log(total)
+  reset();
     if(!capital){
-          console.log("Añade la cantidad que quieres solicitar")
+          setErrorMessage("Añade la cantidad que quieres solicitar")
         } else if(!taxes){
-          console.log("Selecciona los intereses que tendra, si es 0 pon 0.1")
+          setErrorMessage("Selecciona los intereses que tendra, si es 0 pon 0.1")
         } else if (!months){
-          console.log("Selecciona los meses a los plazos que vas a pagar")
+         setErrorMessage("Selecciona los meses a los plazos que vas a pagar")
         } else {
           //console.log('ok')
           const i = taxes / 100;
@@ -57,6 +59,10 @@ console.log(total)
 }
 
 
+const reset = () => {
+  setErrorMessage("");
+  setTotal(null)
+}
 
 
   return (
@@ -71,10 +77,9 @@ console.log(total)
                   setMonths={setMonths}
                   />
           </SafeAreaView>
+          <ResultCalculation errorMessage={errorMessage}/>
           <Footer calculate={calculate} />
-          <View>
-            <Text>Resultado</Text>
-          </View>
+         
 
          
      {/* </> */}
