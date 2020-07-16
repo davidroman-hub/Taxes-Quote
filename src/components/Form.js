@@ -3,7 +3,9 @@ import {StyleSheet, TextInput, View} from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import colors from '../utils/colors';
 
-const Form  = () => {
+const Form  = (props) => {
+  console.log(props)
+
     return (
         <View  style={styles.viewForm}>
             <View  style={styles.viewInputs}>

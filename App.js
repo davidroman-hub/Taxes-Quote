@@ -1,4 +1,4 @@
-import React,{Fragment} from 'react';
+import React,{Fragment, useState, useEffect} from 'react';
 
 import {StyleSheet,
         View,
@@ -6,7 +6,9 @@ import {StyleSheet,
         SafeAreaView, 
         StatusBar, 
         LogBox, 
-        ViewBase
+        ViewBase,
+        button,
+        Button
       } 
 from 'react-native';
 
@@ -16,7 +18,25 @@ import Form from './src/components/Form';
  LogBox.ignoreLogs(["Picker has been extracted"])
 
 
-const App = () => {
+const App = (props) => {
+
+
+
+// state
+const [capital, setCapital] = useState(null); //Cantidad state
+const [taxes, setTaxes] = useState(null); // taxes state
+const [months,setMonths] = useState(null); //months state
+
+
+const onSubmit = () => {
+  console.log("capital =>", capital)
+  console.log("taxes =>", taxes)
+  console.log("months =>", months)
+}
+
+
+
+
   return (
     <Fragment>
       {/* <> */}
@@ -24,7 +44,10 @@ const App = () => {
           <SafeAreaView style={styles.safeArea}>
             <View style={styles.background} />
             <Text style={styles.titleApp}>  Cotizador de Intereses por meses</Text>
-            <Form/>
+            <Form setCapital={setCapital} 
+                  setTaxes={setTaxes} 
+                  setMonths={setMonths}
+                  />
           </SafeAreaView>
 
           <View>
@@ -32,7 +55,9 @@ const App = () => {
           </View>
 
           <View>
-            <Text>Footer</Text>
+            <Text>
+              <Button title='Enviar' onPress={onSubmit}/>
+            </Text>
           </View>
      {/* </> */}
     </Fragment>
