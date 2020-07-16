@@ -77,7 +77,13 @@ const reset = () => {
                   setMonths={setMonths}
                   />
           </SafeAreaView>
-          <ResultCalculation errorMessage={errorMessage}/>
+          <ResultCalculation 
+          capital = {capital}
+          taxes = {taxes}
+          months = {months}
+          total = {total}
+          errorMessage={errorMessage}/>
+          
           <Footer calculate={calculate} />
          
 
