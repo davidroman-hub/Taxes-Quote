@@ -12,8 +12,12 @@ import {StyleSheet,
       } 
 from 'react-native';
 
+/// Components
+
 import colors from './src/utils/colors' ;// all the props of colors like Sass
 import Form from './src/components/Form';
+import Footer from './src/components/Footer'
+
 
  LogBox.ignoreLogs(["Picker has been extracted"])
 
@@ -28,7 +32,7 @@ const [taxes, setTaxes] = useState(null); // taxes state
 const [months,setMonths] = useState(null); //months state
 
 
-const onSubmit = () => {
+const calculate = () => {
   console.log("capital =>", capital)
   console.log("taxes =>", taxes)
   console.log("months =>", months)
@@ -49,16 +53,12 @@ const onSubmit = () => {
                   setMonths={setMonths}
                   />
           </SafeAreaView>
-
+          <Footer calculate={calculate} />
           <View>
             <Text>Resultado</Text>
           </View>
 
-          <View>
-            <Text>
-              <Button title='Enviar' onPress={onSubmit}/>
-            </Text>
-          </View>
+         
      {/* </> */}
     </Fragment>
   )
