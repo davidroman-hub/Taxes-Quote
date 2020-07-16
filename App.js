@@ -33,6 +33,14 @@ const [months,setMonths] = useState(null); //months state
 const [total, setTotal] = useState(null)
 const [errorMessage, setErrorMessage] = useState(null)
 
+useEffect(() => {
+  if(capital && taxes && months){
+      calculate()
+    } else{
+      reset()
+    }
+},[capital,months,taxes])
+
 const calculate = () => {
   // console.log("capital =>", capital)
   // console.log("taxes =>", taxes)
@@ -66,6 +74,7 @@ const reset = () => {
 
 
   return (
+    
     <Fragment>
       {/* <> */}
         <StatusBar barStyle='light-content' />
@@ -78,11 +87,11 @@ const reset = () => {
                   />
           </SafeAreaView>
           <ResultCalculation 
-          capital = {capital}
-          taxes = {taxes}
-          months = {months}
-          total = {total}
-          errorMessage={errorMessage}/>
+              capital = {capital}
+              taxes = {taxes}
+              months = {months}
+              total = {total}
+              errorMessage={errorMessage}/>
           
           <Footer calculate={calculate} />
          
