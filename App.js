@@ -30,12 +30,30 @@ const App = (props) => {
 const [capital, setCapital] = useState(null); //Cantidad state
 const [taxes, setTaxes] = useState(null); // taxes state
 const [months,setMonths] = useState(null); //months state
-
+const [total, setTotal] = useState(null)
 
 const calculate = () => {
-  console.log("capital =>", capital)
-  console.log("taxes =>", taxes)
-  console.log("months =>", months)
+  // console.log("capital =>", capital)
+  // console.log("taxes =>", taxes)
+  // console.log("months =>", months)
+console.log(total)
+    if(!capital){
+          console.log("Añade la cantidad que quieres solicitar")
+        } else if(!taxes){
+          console.log("Selecciona los intereses que tendra, si es 0 pon 0.1")
+        } else if (!months){
+          console.log("Selecciona los meses a los plazos que vas a pagar")
+        } else {
+          //console.log('ok')
+          const i = taxes / 100;
+          const fee = capital / (( 1 - Math.pow( i + 1, -months)) / i);
+          console.log(fee.toFixed(2).replace('.',','))
+            setTotal({
+              monthlyfee:fee.toFixed(2).replace('.',','),
+              totalPayable:(fee * months).toFixed(2).replace('.',',')
+            })
+            console.log((fee * months).toFixed(2).replace('.',','));
+        }
 }
 
 
